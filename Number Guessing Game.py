@@ -89,6 +89,24 @@ class NumberGuessingGame:
                 if not self.game_over and self.max_attempts is not None:
                     remaining = self.max_attempts - self.attempts
                     print(f"{remaining} attempts left")
-                    
+
+    def replay(self):
+        valid_choice = False
+        play_again = False
+        
+        while not valid_choice:
+            choice = input("\nPlay again? (y/n): ").strip().lower()
+            
+            if choice == "y":
+                play_again = True
+                valid_choice = True
+            elif choice == "n":
+                play again = False
+                valid_choice = True
+                print("Thanks for playing!")
+            else:
+                print("Invalid input. Please enter 'y' or 'n'")
+                
+        return play_again
                     
         
