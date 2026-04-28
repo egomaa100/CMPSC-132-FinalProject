@@ -36,4 +36,59 @@ class NumberGuessingGame:
                 valid_choice = True
             else:
                 print("Invalid choice. Please select 1, 2, or 3.")
+
+    def get_valid_guess(self):
+        valid_input = False
+        result = None
+        while not valid_input:
+            guess = input("Enter your guess: ").strip()
+
+            if guess.lower() == "quit":
+                result = None
+                valid_input = True
+            else:
+                try:
+                    guess_int = int(guess)
+                    if guess_int > 0:
+                        result = guess_int
+                        valid_input = True
+                    else:
+                        print("Please enter a positive number")
+                except ValueError:
+                    print("Invalid input. Please enter a valid number")
+
+        return result
+
+    def play(self):
+        self.attempts = 0
+        self.game_over = False
+        print(f"\nGame Started! Difficulty: {self.difficulty}")
+        print("Type 'quit' anytime to exit the game\n")
+        
+        while not self.game_over:
+            guess = self.get_valid_guess()
+            
+            if guess is None:
+                print("You exited the game")
+                self.game_over = True
+            else:
+                self.attempts += 1
+
+            if self.max_attempts is not None and self.attempts > self.max_attempts:
+                print(f"\nOut of attempts! The number was {self.number}")
+                self.game_over = True
+            else:
+                if guess > self.number:
+                    print("Too high! Try a lower number")
+                elif guess < self.number:
+                    print("Too low! Try a higher number")
+                else:
+                    print(f"\nCongratulations! You guessed the number in {self.attempts} attempts!")
+                    self.game_over = True
+
+                if not self.game_over and self.max_attempts is not None:
+                    remaining = self.max_attempts - self.attempts
+                    print(f"{remaining} attempts left")
+                    
+                    
         
