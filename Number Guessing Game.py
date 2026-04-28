@@ -7,3 +7,6 @@ class NumberGuessingGame:
         self.attempts = 0
         self.max_attempts = None
         self.difficulty = ""
+        self.game_over = False
+        
+        
