@@ -109,4 +109,14 @@ class NumberGuessingGame:
                 
         return play_again
                     
-        
+def main():
+    print("Number Guessing Game")
+    game = NumberGuessingGame()
+    playing = True
+    while playing:
+        game.choose_difficulty()
+        game.play()
+        playing = game.replay()
+
+if __name__ == "__main__":
+    main()
