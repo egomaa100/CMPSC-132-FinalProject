@@ -17,7 +17,7 @@ class NumberGuessingGame:
             print("2. Medium (1-100, 10 attempts)")
             print("3. Hard (1-200, 5 attempts)")
 
-            choice = input("Enter choice (1-3): ".strip()
+            choice = input("Enter choice (1-3): ".strip())
 
             if choice == "1":
                 self.number = random.randint(1,50)
@@ -74,7 +74,7 @@ class NumberGuessingGame:
             else:
                 self.attempts += 1
 
-            if self.max_attempts is not None and self.attempts > self.max_attempts:
+            if self.max_attempts is not None and self.attempts == self.max_attempts:
                 print(f"\nOut of attempts! The number was {self.number}")
                 self.game_over = True
             else:
@@ -101,7 +101,7 @@ class NumberGuessingGame:
                 play_again = True
                 valid_choice = True
             elif choice == "n":
-                play again = False
+                play_again = False
                 valid_choice = True
                 print("Thanks for playing!")
             else:
